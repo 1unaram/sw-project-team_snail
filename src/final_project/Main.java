@@ -1,9 +1,7 @@
 package final_project;
 
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,8 +26,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		new MainFrame();
-		// new NaverMap();
+		// new MainFrame();
+		new List();
 	}
 
 }
@@ -159,7 +157,6 @@ class Search {
 		}
 
 		String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&sort=comment&display=10"; // Blog
-		// String apiURL = "https://openapi.naver.com/v1/search/news?query=" + text; //
 
 		Map<String, String> requestHeaders = new HashMap<>();
 		requestHeaders.put("X-Naver-Client-Id", clientId);
