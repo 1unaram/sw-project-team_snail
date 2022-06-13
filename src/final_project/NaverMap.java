@@ -36,6 +36,23 @@ class NaverMap {
         this.mapImg = get(apiURL, requestHeaders);
     }
 
+    NaverMap(String clientId, String clientSecret, int w, int h, Marker marker) {
+        // 요청 파라미터를 포함한 URL
+        String apiURL = "https://naveropenapi.apigw.ntruss.com/map-static/v2/raster?crs=NHN:128&w="
+                + Integer.toString(w) + "&h=" + Integer.toString(h);
+
+        apiURL += marker.toString();
+        System.out.println(apiURL);
+
+        // 요청 Header 설정
+        Map<String, String> requestHeaders = new HashMap<>();
+        requestHeaders.put("X-NCP-APIGW-API-KEY-ID", clientId);
+        requestHeaders.put("X-NCP-APIGW-API-KEY", clientSecret);
+
+        // API 요청하여 Image 할당
+        this.mapImg = get(apiURL, requestHeaders);
+    }
+
     // Marker 없는 베이직 지도 생성자
     NaverMap(String clientId, String clientSecret, int w, int h, String x, String y) {
 

@@ -1,0 +1,63 @@
+{
+    "total": 5,
+    "lastBuildDate": "Mon, 13 Jun 2022 00:08:04 +0900",
+    "display": 5,
+    "start": 1,
+    "items": [
+        {
+            "address": "서울특별시 종로구 명륜4가  94-2 2층 학림카페",
+            "roadAddress": "서울특별시 종로구 대학로 119 2층 학림카페",
+            "link": "http:\/\/hakrim.pe.kr\/",
+            "description": "",
+            "telephone": "",
+            "title": "학림",
+            "category": "카페,디저트>카페",
+            "mapy": "553772",
+            "mapx": "312021"
+        },
+        {
+            "address": "서울특별시 종로구 명륜4가 85-1",
+            "roadAddress": "서울특별시 종로구 대학로11길 12",
+            "link": "http:\/\/www.snobblue.com\/daehak_rd.html",
+            "description": "",
+            "telephone": "",
+            "title": "스노브 대학로점",
+            "category": "카페,디저트>케이크전문",
+            "mapy": "553824",
+            "mapx": "311971"
+        },
+        {
+            "address": "서울특별시 종로구 명륜4가 103-5 삼원샏",
+            "roadAddress": "서울특별시 종로구 대학로11길 9-3 삼원샏",
+            "link": "https:\/\/www.instagram.com\/samonesec?igshid=13bcyo7e8h3hf",
+            "description": "",
+            "telephone": "",
+            "title": "삼 원 샏",
+            "category": "음식점>카페,디저트",
+            "mapy": "553798",
+            "mapx": "311983"
+        },
+        {
+            "address": "서울특별시 종로구 명륜4가 154-2 2층",
+            "roadAddress": "서울특별시 종로구 창경궁로26길 41-3 2층",
+            "link": "http:\/\/www.instagram.com\/ki___iro\/",
+            "description": "",
+            "telephone": "",
+            "title": "<b>카페<\/b>키이로",
+            "category": "음식점>카페,디저트",
+            "mapy": "553791",
+            "mapx": "311854"
+        },
+        {
+            "address": "서울특별시 종로구 명륜4가 168-2 1층",
+            "roadAddress": "서울특별시 종로구 대학로11길 41-6 1층",
+            "link": "http:\/\/instagram.com\/official_matiere_cafe",
+            "description": "",
+            "telephone": "",
+            "title": "마띠에르",
+            "category": "음식점>카페,디저트",
+            "mapy": "553818",
+            "mapx": "311814"
+        }
+    ]
+}

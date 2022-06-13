@@ -1,6 +1,13 @@
 package final_project;
 
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Desktop;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -18,10 +25,35 @@ public class MainFrame extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
 
+        // JLabel label = new JLabel("<html><u>>링크입니다<</u></html>");
+        // label.setForeground(Color.BLUE);
+        // label.addMouseListener(new MouseAdapter() {
+        // @Override
+        // public void mouseClicked(MouseEvent e) {
+        // JLabelMoveToLink(e);
+        // }
+        // });
+        // mainContainer.add(label);
+
         init();
 
         revalidate();
     }
+
+    // private void JLabelMoveToLink(MouseEvent evt) {
+    // if (Desktop.isDesktopSupported()) {
+    // Desktop desktop = Desktop.getDesktop();
+    // try {
+    // URI uri = new URI("https://map.naver.com/v5/search/정돈%20대학로점");
+    // desktop.browse(uri);
+    // } catch (IOException ex) {
+    // ex.printStackTrace();
+    // } catch (URISyntaxException ex) {
+    // ex.printStackTrace();
+    // }
+    // }
+
+    // }
 
     public void init() {
         // NaverMap map = new NaverMap(Main.clientId, Main.clientSecret, 700, 700,

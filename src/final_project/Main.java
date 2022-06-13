@@ -26,8 +26,9 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		// new MainFrame();
-		new List();
+		new MainFrame();
+		// new List();
+		// new Search();
 	}
 
 }
@@ -65,7 +66,7 @@ class DatalabSearch {
 		HttpURLConnection con = connect(apiUrl);
 
 		try {
-			con.setRequestMethod("POST");
+			con.setRequestMethod("GET");
 			for (Map.Entry<String, String> header : requestHeaders.entrySet()) {
 				con.setRequestProperty(header.getKey(), header.getValue());
 			}
@@ -151,12 +152,12 @@ class Search {
 
 		String text = null;
 		try {
-			text = URLEncoder.encode("중앙대 맛집", "UTF-8");
+			text = URLEncoder.encode("혜화 연극", "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			throw new RuntimeException("검색어 인코딩 실패", e);
 		}
 
-		String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&sort=comment&display=10"; // Blog
+		String apiURL = "https://openapi.naver.com/v1/search/local?query=" + text + "&sort=comment&display=5"; // Blog
 
 		Map<String, String> requestHeaders = new HashMap<>();
 		requestHeaders.put("X-Naver-Client-Id", clientId);
@@ -220,7 +221,7 @@ class Search {
 		try {
 			Object obj = parser.parse(response);
 			JSONObject jsonObj = (JSONObject) obj;
-			System.out.println((String) jsonObj.get("startDate"));
+			// System.out.println((String) jsonObj.get("startDate"));
 			createJSONFile(jsonObj);
 		} catch (ParseException e) {
 			e.printStackTrace();

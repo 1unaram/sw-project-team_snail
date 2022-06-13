@@ -1,0 +1,63 @@
+{
+    "total": 5,
+    "lastBuildDate": "Mon, 13 Jun 2022 00:05:42 +0900",
+    "display": 5,
+    "start": 1,
+    "items": [
+        {
+            "address": "서울특별시 종로구 명륜4가 107 지층",
+            "roadAddress": "서울특별시 종로구 대학로9길 12",
+            "link": "http:\/\/blog.naver.com\/jungdon0916",
+            "description": "",
+            "telephone": "",
+            "title": "정돈 대학로본점",
+            "category": "일식>돈가스",
+            "mapy": "553756",
+            "mapx": "311974"
+        },
+        {
+            "address": "서울특별시 종로구 명륜4가 143",
+            "roadAddress": "서울특별시 종로구 대학로9길 35",
+            "link": "http:\/\/www.instagram.com\/hohosikdang",
+            "description": "",
+            "telephone": "",
+            "title": "호호<b>식당<\/b> 대학로",
+            "category": "일식>일식당",
+            "mapy": "553767",
+            "mapx": "311880"
+        },
+        {
+            "address": "서울특별시 종로구 명륜4가  94-2 2층 학림카페",
+            "roadAddress": "서울특별시 종로구 대학로 119 2층 학림카페",
+            "link": "http:\/\/hakrim.pe.kr\/",
+            "description": "",
+            "telephone": "",
+            "title": "학림",
+            "category": "카페,디저트>카페",
+            "mapy": "553772",
+            "mapx": "312021"
+        },
+        {
+            "address": "서울특별시 종로구 명륜4가 170-2",
+            "roadAddress": "서울특별시 종로구 대학로11길 41-4",
+            "link": "http:\/\/deptrai.modoo.at\/",
+            "description": "",
+            "telephone": "",
+            "title": "뎁짜이",
+            "category": "음식점>베트남음식",
+            "mapy": "553824",
+            "mapx": "311808"
+        },
+        {
+            "address": "서울특별시 종로구 명륜4가 85-10",
+            "roadAddress": "서울특별시 종로구 대학로11길 16",
+            "link": "http:\/\/www.jjori375.com",
+            "description": "",
+            "telephone": "",
+            "title": "쪼리375",
+            "category": "한식>닭요리",
+            "mapy": "553819",
+            "mapx": "311948"
+        }
+    ]
+}
