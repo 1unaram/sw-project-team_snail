@@ -58,12 +58,9 @@ public class ListDialog extends JDialog {
 		togo.setFont(new Font("SansSerif", Font.BOLD, 30));
 
 		//
-		ListPanel listpanel1 = new ListPanel(
-				"<html> address : " + info1.address + "<br>" + " category : " + info1.category + "<br></html>");
-		ListPanel listpanel2 = new ListPanel(
-				"<html> address : " + info2.address + "<br>" + " category : " + info2.category + "<br></html>");
-		ListPanel listpanel3 = new ListPanel(
-				"<html> address : " + info3.address + "<br>" + " category : " + info3.category + "<br></html>");
+		ListPanel listpanel1 = new ListPanel("<html> 1. " + info1.title +  "<br>" + "address : " + "<br>" + info1.address +  "<br>" + " category : " + info1.category + "<br></html>");
+		ListPanel listpanel2 = new ListPanel("<html> 2. " + info2.title +  "<br>" + "address : " + "<br>" + info2.address +  "<br>" + " category : " + info2.category + "<br></html>");
+		ListPanel listpanel3 = new ListPanel("<html> 3. " + info3.title + "<br>" + "address : " + "<br>" +info3.address +  "<br>" + " category : " + info3.category + "<br></html>");
 
 		p_center.setLayout(new BorderLayout());
 

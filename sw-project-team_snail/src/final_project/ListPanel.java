@@ -1,6 +1,7 @@
 package final_project;
 
 import java.awt.Color;
+import java.awt.Font;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -32,9 +33,10 @@ public class ListPanel extends JPanel {
 		this.setBackground(color);
 
 		la_name.setForeground(Color.white);
+		la_name.setFont((new Font("SansSerif", Font.PLAIN, 12)));
 
 		this.add(la_name);
-		la_name.setBounds(20, 10, 200, 50);
+		la_name.setBounds(20, 0, 300, 100);
 	}
 
 }
