@@ -53,7 +53,7 @@ class Naver_GUI extends JFrame {
 		} else if (panelName.equals("startp")) {
 			container.add(startp);
 		} else if (panelName.equals("place_check")) {
-			place_check = new Place_Check();
+			place_check = new Place_Check(keywordp.restList, keywordp.cafeList, keywordp.cultureList);
 			container.add(place_check);
 		}
 

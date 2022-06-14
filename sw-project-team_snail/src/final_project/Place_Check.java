@@ -8,6 +8,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -88,7 +89,18 @@ public class Place_Check extends JPanel implements ActionListener {
     JRadioButton radio444 = new JRadioButton();
     JRadioButton radio555 = new JRadioButton();
 
-    Place_Check() {
+    Place_Check(ArrayList<StoreInfo> restList, ArrayList<StoreInfo> cafeList, ArrayList<StoreInfo> cultureList) {
+
+        for (StoreInfo s : restList) {
+            System.out.println(s.title);
+        }
+        for (StoreInfo s : cafeList) {
+            System.out.println(s.title);
+        }
+        for (StoreInfo s : cultureList) {
+            System.out.println(s.title);
+        }
+        System.out.println("========================================");
 
         setMyButton();
 
