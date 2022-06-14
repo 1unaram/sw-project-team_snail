@@ -88,20 +88,20 @@ public class Place_Check extends JPanel implements ActionListener {
     JRadioButton radio333 = new JRadioButton();
     JRadioButton radio444 = new JRadioButton();
     JRadioButton radio555 = new JRadioButton();
+    
+    StoreInfo fin_1;
+    StoreInfo fin_2;
+    StoreInfo fin_3;
+    
+    ArrayList<StoreInfo> restList;
+    ArrayList<StoreInfo> cafeList;
+    ArrayList<StoreInfo> cultureList;
 
     Place_Check(ArrayList<StoreInfo> restList, ArrayList<StoreInfo> cafeList, ArrayList<StoreInfo> cultureList) {
-
-        for (StoreInfo s : restList) {
-            System.out.println(s.title);
-        }
-        for (StoreInfo s : cafeList) {
-            System.out.println(s.title);
-        }
-        for (StoreInfo s : cultureList) {
-            System.out.println(s.title);
-        }
-        System.out.println("========================================");
-
+    	this.restList = restList;
+    	this.cafeList = cafeList;
+    	this.cultureList = cultureList;
+    	
         setMyButton();
 
         Color color = new Color(126, 173, 84);
@@ -173,26 +173,21 @@ public class Place_Check extends JPanel implements ActionListener {
         p3_east_play.setBackground(Color.white);
 
         // rest
-        Marker[] markers_rest = new Marker[5];
-        Marker marker1_rest = new Marker("mid", "311974", "553756", "n", 1);
-        Marker marker2_rest = new Marker("mid", "311880", "553767", "n", 2);
-        Marker marker3_rest = new Marker("mid", "312021", "553772", "n", 3);
-        Marker marker4_rest = new Marker("mid", "311808", "553824", "n", 4);
-        Marker marker5_rest = new Marker("mid", "311948", "553819", "n", 5);
-
-        markers_rest[0] = marker1_rest;
-        markers_rest[1] = marker2_rest;
-        markers_rest[2] = marker3_rest;
-        markers_rest[3] = marker4_rest;
-        markers_rest[4] = marker5_rest;
+        Marker[] markers_rest = new Marker[5];   
+        
+        int restIndex = 0;
+        for(StoreInfo s : restList)
+        {
+        	markers_rest[restIndex] = new Marker("mid", s.mapx, s.mapy, "n", restIndex + 1);
+        	restIndex++;
+        }
 
         NaverMap map1 = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 900, 600, markers_rest);
         JLabel mapLabel1 = new JLabel(new ImageIcon(map1.mapImg));
         p2_rast.add(mapLabel1, BorderLayout.CENTER);
 
         for (int i = 0; i < 5; i++) {
-            map_rast[i] = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 500, 500,
-                    markers_rest[i]);
+            map_rast[i] = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 500, 500, markers_rest[i]);
             mapimage[i] = new JLabel(new ImageIcon(map_rast[i].mapImg));
         }
 
@@ -223,18 +218,14 @@ public class Place_Check extends JPanel implements ActionListener {
             p3_center_rest.add(place_rest[i]);
         }
 
-        // p3_rest.add(p3_center_rest, BorderLayout.CENTER);
-        // p3_rest.add(p3_east_rest, BorderLayout.EAST);
-
-        place_rest[0].setText("1. 정돈 대학로본점");
-        place_rest[1].setText("2. 호호 식당 대학로");
-        place_rest[2].setText("3. 학림");
-        place_rest[3].setText("4. 뎁짜이");
-        place_rest[4].setText("5. 쪼리375");
-
-        for (int i = 0; i < 5; i++) {
-            dialog_res[i] = new Dialog(f, place_rest[i].getText(), mapimage[i]);
+        int rest=0;
+        for(StoreInfo s : restList) {
+        	place_rest[rest].setText("<html>" +  Integer.toString(rest+1) + ". " + s.title + "</html>");
+        	dialog_res[rest] = new Dialog(f, place_rest[rest].getText(), mapimage[rest], s);
+        	rest++;
+        	
         }
+
 
         place_rest[0].addActionListener(new ActionListener() {
             @Override
@@ -272,25 +263,21 @@ public class Place_Check extends JPanel implements ActionListener {
 
         // cafe
         Marker[] markers_cafe = new Marker[5];
-        Marker marker1_cafe = new Marker("mid", "312021", "553772", "n", 1);
-        Marker marker2_cafe = new Marker("mid", "311971", "553824", "n", 2);
-        Marker marker3_cafe = new Marker("mid", "311983", "553798", "n", 3);
-        Marker marker4_cafe = new Marker("mid", "311854", "553791", "n", 4);
-        Marker marker5_cafe = new Marker("mid", "311814", "553818", "n", 5);
-
-        markers_cafe[0] = marker1_cafe;
-        markers_cafe[1] = marker2_cafe;
-        markers_cafe[2] = marker3_cafe;
-        markers_cafe[3] = marker4_cafe;
-        markers_cafe[4] = marker5_cafe;
+        
+        int cafeIndex = 0;
+        for(StoreInfo s : cafeList)
+        {
+        	markers_cafe[cafeIndex] = new Marker("mid", s.mapx, s.mapy, "n", cafeIndex + 1);
+        	cafeIndex++;
+        }
+        
 
         NaverMap map2 = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 900, 600, markers_cafe);
         JLabel mapLabel2 = new JLabel(new ImageIcon(map2.mapImg));
         p2_cafe.add(mapLabel2, BorderLayout.CENTER);
 
         for (int i = 0; i < 5; i++) {
-            map_cafe[i] = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 500, 500,
-                    markers_cafe[i]);
+            map_cafe[i] = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 500, 500, markers_cafe[i]);
             mapimage[i] = new JLabel(new ImageIcon(map_cafe[i].mapImg));
         }
 
@@ -322,18 +309,16 @@ public class Place_Check extends JPanel implements ActionListener {
             p3_center_cafe.add(place_cafe[i]);
         }
 
-        // p3_cafe.add(p3_center_cafe, BorderLayout.CENTER);
-        // p3_cafe.add(p3_east_cafe, BorderLayout.EAST);
 
-        place_cafe[0].setText("1. 학림");
-        place_cafe[1].setText("2. 스노브 대학로점");
-        place_cafe[2].setText("3. 삼 원 샏");
-        place_cafe[3].setText("4. 카페 키이로");
-        place_cafe[4].setText("5. 마띠에르");
-
-        for (int i = 0; i < 5; i++) {
-            dialog_cafe[i] = new Dialog(f, place_cafe[i].getText(), mapimage[i]);
+        int cafe=0;
+        for(StoreInfo s : cultureList) {
+        	place_cafe[cafe].setText("<html>" + Integer.toString(cafe+1) + ". " + s.title + "</html>");
+        	dialog_cafe[cafe] = new Dialog(f, place_cafe[cafe].getText(), mapimage[cafe], s);
+        	cafe++;
+        	
         }
+
+      
         place_cafe[0].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -371,25 +356,20 @@ public class Place_Check extends JPanel implements ActionListener {
 
         // play
         Marker[] markers_play = new Marker[5];
-        Marker marker1_play = new Marker("mid", "312066", "553946", "n", 1);
-        Marker marker2_play = new Marker("mid", "311924", "553990", "n", 2);
-        Marker marker3_play = new Marker("mid", "311913", "553971", "n", 3);
-        Marker marker4_play = new Marker("mid", "312101", "553961", "n", 4);
-        Marker marker5_play = new Marker("mid", "311913", "553786", "n", 5);
-
-        markers_play[0] = marker1_play;
-        markers_play[1] = marker2_play;
-        markers_play[2] = marker3_play;
-        markers_play[3] = marker4_play;
-        markers_play[4] = marker5_play;
+        
+        int playIndex = 0;
+        for(StoreInfo s : restList)
+        {
+        	markers_play[playIndex] = new Marker("mid", s.mapx, s.mapy, "n", playIndex + 1);
+        	playIndex++;
+        }
 
         NaverMap map3 = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 900, 600, markers_play);
         JLabel mapLabel3 = new JLabel(new ImageIcon(map3.mapImg));
         p2_play.add(mapLabel3, BorderLayout.CENTER);
 
         for (int i = 0; i < 5; i++) {
-            map_play[i] = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 500, 500,
-                    markers_play[i]);
+            map_play[i] = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 500, 500, markers_play[i]);
             mapimage[i] = new JLabel(new ImageIcon(map_play[i].mapImg));
         }
 
@@ -421,19 +401,17 @@ public class Place_Check extends JPanel implements ActionListener {
             p3_center_play.add(place_play[i]);
         }
 
-        // p3_play.add(p3_center_play, BorderLayout.CENTER);
-        // p3_play.add(p3_east_play, BorderLayout.EAST);
 
         // 이따 정보 들어오면 for-each 구문으로 변경
-        place_play[0].setText("1. 서경대학교 공연예술센터");
-        place_play[1].setText("2. 서연아트홀");
-        place_play[2].setText("3. 열린극장");
-        place_play[3].setText("4. 낙산시어터");
-        place_play[4].setText("5. 타이니앨리스극장");
-
-        for (int i = 0; i < 5; i++) {
-            dialog_play[i] = new Dialog(f, place_play[i].getText(), mapimage[i]);
+        
+        int cul=0;
+        for(StoreInfo s : cultureList) {
+        	place_play[cul].setText("<html>" + Integer.toString(cul+1) + ". " + s.title + "</html>");
+        	dialog_play[cul] = new Dialog(f, place_play[cul].getText(), mapimage[cul], s);
+        	cul++;
+        	
         }
+
         place_play[0].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -469,14 +447,18 @@ public class Place_Check extends JPanel implements ActionListener {
             }
         });
 
+
+        
+        
+        
         but_finish.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 Marker[] final_markers = new Marker[3];
 
-                Marker final_1 = new Marker("mid", "312066", "553946", "n", 1);
-                Marker final_2 = new Marker("mid", "311924", "553990", "n", 2);
-                Marker final_3 = new Marker("mid", "311913", "553971", "n", 3);
+                Marker final_1 = new Marker("mid", fin_1.mapx, fin_1.mapy, "n", 1);
+                Marker final_2 = new Marker("mid", fin_2.mapx, fin_2.mapy, "n", 2);
+                Marker final_3 = new Marker("mid", fin_3.mapx, fin_3.mapy, "n", 3);
 
                 final_markers[0] = final_1;
                 final_markers[1] = final_2;
@@ -485,7 +467,7 @@ public class Place_Check extends JPanel implements ActionListener {
                 NaverMap final_map = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 900, 600,
                         final_markers);
                 JLabel final_mapLabel = new JLabel(new ImageIcon(final_map.mapImg));
-                ListDialog listdialog = new ListDialog(f, final_mapLabel, str1, str2, str3);
+                ListDialog listdialog = new ListDialog(f, final_mapLabel, fin_1, fin_2, fin_3);
                 listdialog.setVisible(true);
 
             }
@@ -510,41 +492,41 @@ public class Place_Check extends JPanel implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         if (radio1.isSelected()) {
-            str1 = "[1] " + place_rest[0].getText();
+            fin_1 = restList.get(0);
+            
         } else if (radio2.isSelected()) {
-            str1 = "[1] " + place_rest[1].getText();
+        	fin_1 = restList.get(1);
         } else if (radio3.isSelected()) {
-            str1 = "[1] " + place_rest[2].getText();
+        	fin_1 = restList.get(2);
         } else if (radio4.isSelected()) {
-            str1 = "[1] " + place_rest[3].getText();
+        	fin_1 = restList.get(3);
         } else if (radio5.isSelected()) {
-            str1 = "[1] " + place_rest[4].getText();
+        	fin_1 = restList.get(4);
         }
 
         if (radio11.isSelected()) {
-            str2 = "[2] " + place_cafe[0].getText();
+        	fin_2 = cafeList.get(0);
 
         } else if (radio22.isSelected()) {
-            str2 = "[2] " + place_cafe[1].getText();
-            System.out.println(str2);
+        	fin_2 = cafeList.get(1);
         } else if (radio33.isSelected()) {
-            str2 = "[2] " + place_cafe[2].getText();
+        	fin_2 = cafeList.get(2);
         } else if (radio44.isSelected()) {
-            str2 = "[2] " + place_cafe[3].getText();
+        	fin_2 = cafeList.get(3);
         } else if (radio55.isSelected()) {
-            str2 = "[2] " + place_cafe[4].getText();
+        	fin_2 = cafeList.get(4);
         }
 
         if (radio111.isSelected()) {
-            str3 = "[3] " + place_play[0].getText();
+        	fin_3 = cultureList.get(0);
         } else if (radio222.isSelected()) {
-            str3 = "[3] " + place_play[1].getText();
+        	fin_3 = cultureList.get(1);
         } else if (radio333.isSelected()) {
-            str3 = "[3] " + place_play[2].getText();
+        	fin_3 = cultureList.get(2);
         } else if (radio444.isSelected()) {
-            str3 = "[3] " + place_play[3].getText();
+        	fin_3 = cultureList.get(3);
         } else if (radio555.isSelected()) {
-            str3 = "[3] " + place_play[4].getText();
+        	fin_3 = cultureList.get(4);
         }
 
     }

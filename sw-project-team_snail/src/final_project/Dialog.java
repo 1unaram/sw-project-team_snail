@@ -21,11 +21,12 @@ public class Dialog extends JDialog {
 
 	JLabel title1 = new JLabel();
 	JLabel rau_content = new JLabel();
-
+	// JLabel link = new JLabel("LINK");
 	JButton okButton = new JButton("OK");
 
-	Dialog(JFrame frame, String title, JLabel map) {
-		super(frame, title);
+	Dialog(JFrame frame, String title, JLabel map, StoreInfo info) {
+		super(frame);
+		this.setTitle("Information");
 
 		this.setSize(700, 700);
 		this.setLayout(new BorderLayout());
@@ -39,8 +40,8 @@ public class Dialog extends JDialog {
 		p.setBackground(Color.white);
 		p.setLayout(new BorderLayout());
 		p.add(title1, BorderLayout.NORTH);
-		p.add(okButton, BorderLayout.SOUTH);
 		p.add(p_center, BorderLayout.CENTER);
+		p.add(okButton, BorderLayout.SOUTH);
 
 		p_center.setBackground(Color.white);
 		p_center.setLayout(new BorderLayout(40, 60));
@@ -60,7 +61,8 @@ public class Dialog extends JDialog {
 
 		// content setting
 		rau_content.setHorizontalAlignment(JLabel.CENTER);
-		rau_content.setText("<html>address : 서울특별시 종로구 대학로9길 12<br>category : 일식>돈가스<br><br><br></html>");
+		rau_content.setText(
+				"<html> address : " + info.address + "<br>" + " category : " + info.category + "<br><br><br></html>");
 		rau_content.setForeground(color2);
 		rau_content.setBounds(50, 70, 300, 400);
 		rau_content.setFont(new Font("SansSerif", Font.PLAIN, 20));

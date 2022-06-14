@@ -29,7 +29,7 @@ public class ListDialog extends JDialog {
 
 	JButton okButton = new JButton("OK");
 
-	ListDialog(JFrame frame, JLabel map, String str1, String str2, String str3) {
+	ListDialog(JFrame frame, JLabel map, StoreInfo info1, StoreInfo info2, StoreInfo info3) {
 		super(frame);
 
 		this.setSize(400, 800);
@@ -58,9 +58,12 @@ public class ListDialog extends JDialog {
 		togo.setFont(new Font("SansSerif", Font.BOLD, 30));
 
 		//
-		ListPanel listpanel1 = new ListPanel(str1);
-		ListPanel listpanel2 = new ListPanel(str2);
-		ListPanel listpanel3 = new ListPanel(str3);
+		ListPanel listpanel1 = new ListPanel(
+				"<html> address : " + info1.address + "<br>" + " category : " + info1.category + "<br></html>");
+		ListPanel listpanel2 = new ListPanel(
+				"<html> address : " + info2.address + "<br>" + " category : " + info2.category + "<br></html>");
+		ListPanel listpanel3 = new ListPanel(
+				"<html> address : " + info3.address + "<br>" + " category : " + info3.category + "<br></html>");
 
 		p_center.setLayout(new BorderLayout());
 

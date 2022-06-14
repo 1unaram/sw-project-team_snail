@@ -29,6 +29,7 @@ class Naver_GUI extends JFrame {
 		this.setResizable(false);
 		this.setTitle("Naver Trend Search API");
 
+
 		// 컴포넌트 붙이기
 		init();
 

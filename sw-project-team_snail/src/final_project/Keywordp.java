@@ -6,8 +6,6 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -17,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import javax.xml.transform.Templates;
 
 class Keywordp extends JPanel { // 키워드 검색시 순위 출력->여기서 검색 버튼 누르면 해당 키워드 관련 음식점, 카페등의 리스트 출력해줌
 
@@ -43,6 +42,8 @@ class Keywordp extends JPanel { // 키워드 검색시 순위 출력->여기서 
 	ImageIcon img6 = new ImageIcon("img/add.png");
 	ImageIcon img7 = new ImageIcon("img/compare.png");
 	ImageIcon iranking = new ImageIcon("img/ranking.png");
+	ImageIcon home = new ImageIcon("img/home.png");
+	ImageIcon select = new ImageIcon("img/select.png");
 
 	// Color
 	static Color color = new Color(255, 255, 255); // 흰 배경색
@@ -50,6 +51,10 @@ class Keywordp extends JPanel { // 키워드 검색시 순위 출력->여기서 
 
 	// JButton
 	JButton homeBtn = new JButton("back to main"); // 메인화면으로 돌아가는 버튼, 누르면 키워드검색들 다 초기화 됨
+	JButton selectBtn = new JButton(select); // 갈 장소 선택하는 버튼, 누르면 place_Check로 넘어감
+
+	// JTextField
+	JTextField tempField = new JTextField();
 
 	/* class 분리 */
 	// keyword 번호 이미지
@@ -68,7 +73,7 @@ class Keywordp extends JPanel { // 키워드 검색시 순위 출력->여기서 
 	RankSearchBtn[] rsb = new RankSearchBtn[5];
 
 	public void paintComponent(Graphics g) {
-		Color color = new Color(112, 173, 71);// naver 녹색
+		Color color = new Color(112, 173, 71); // naver 녹색
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setStroke(new BasicStroke(2));
@@ -120,7 +125,6 @@ class Keywordp extends JPanel { // 키워드 검색시 순위 출력->여기서 
 		for (int i = 0; i < 5; i++) {
 			ril[i] = new RankImageBtn(Integer.toString(i + 1), i);
 			ril[i].setBounds(830, 93 + 50 * i, 54, 44);
-			ril[i].addActionListener(new SelectRankListener());
 			add(ril[i]);
 
 			// 3~5는 추가누르기 전까지 보이지 않게 하기
@@ -163,14 +167,22 @@ class Keywordp extends JPanel { // 키워드 검색시 순위 출력->여기서 
 		ranking = new JLabel(iranking);
 		ranking.setBounds(890, 43, 326, 44);
 
-		homeBtn.setSize(120, 20);
+		homeBtn = new JButton(home);
+		homeBtn.setSize(120, 40);
 		homeBtn.setLocation(10, 10);
 		homeBtn.addActionListener(new MyActionListener());
+
+		selectBtn.setBounds(1300, 10, 120, 40);
+		selectBtn.addActionListener(new SelectRankListener());
+
+		tempField.setBounds(1215, 10, 80, 40);
 
 		add(add);
 		add(compare);
 		add(ranking);
 		add(homeBtn);
+		add(selectBtn);
+		add(tempField);
 
 		myRevalidate();
 	}
@@ -184,7 +196,9 @@ class Keywordp extends JPanel { // 키워드 검색시 순위 출력->여기서 
 			// back to main 버튼
 			if (e.getSource() == homeBtn) {
 				win.change("startp");
+				cnt = 2;
 
+				resetAll();
 				rankingList.clear();
 			}
 			// add 버튼 누르면 keyword 입력칸 추가하기
@@ -226,10 +240,24 @@ class Keywordp extends JPanel { // 키워드 검색시 순위 출력->여기서 
 	class SearchActionListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			keyword = rtf[((RankSearchBtn) (e.getSource())).index].getText();
+			String str = rtf[((RankSearchBtn) (e.getSource())).index].getText();
+			keyword = str;
+
+			tempField.setText(str);
 
 			addUnion();
 			myRevalidate();
+		}
+	}
+
+	// 추가된 패널 지우기
+	public void resetAll() {
+		for (int i = 2; i < 5; i++) {
+			kil[i].setVisible(false);
+			ktf[i].setVisible(false);
+			ril[i].setVisible(false);
+			rsb[i].setVisible(false);
+			rtf[i].setVisible(false);
 		}
 	}
 
@@ -268,7 +296,7 @@ class KeywordTextField extends JTextField {
 	}
 }
 
-class RankImageBtn extends JButton {
+class RankImageBtn extends JLabel {
 	int index;
 
 	RankImageBtn(String number, int index) {
