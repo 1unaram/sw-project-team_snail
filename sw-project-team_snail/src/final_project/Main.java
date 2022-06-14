@@ -1,0 +1,14 @@
+package final_project;
+
+public class Main {
+
+	static String clientId = "9pwchirpzc";
+	static String clientSecret = "CNQSofjNTeOFHOoODDAvpk0QNs9a2MXZh80kFXbM";
+
+	public static void main(String[] args) {
+
+		new Naver_GUI();
+
+	}
+
+}
