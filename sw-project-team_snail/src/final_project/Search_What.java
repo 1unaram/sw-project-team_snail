@@ -27,8 +27,8 @@ class Search_What {
 
 		storeinfo = new ArrayList<StoreInfo>();
 
-		String clientId = "XuXFTCmdT587nrJw2EdK"; // 애플리케이션 클라이언트 아이디값
-		String clientSecret = "O6agF33Osq"; // 애플리케이션 클라이언트 시크릿값
+		String clientId = Main.searchClientId; // 애플리케이션 클라이언트 아이디값
+		String clientSecret = Main.searchClientSecret; // 애플리케이션 클라이언트 시크릿값
 
 		String text = null;
 		try {

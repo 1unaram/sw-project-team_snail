@@ -24,8 +24,8 @@ import org.json.simple.parser.JSONParser;
 public class Compare_Trends {
 	Compare_Trends(ArrayList<String> strList, RankTextField[] textFieldArr, int cnt,
 			ArrayList<String> rankingList) {
-		String clientId = "RkM6JdCnsbBAXN2BXpyF";// 애플리케이션 클라이언트 아이디값";
-		String clientSecret = "PpImsPss7E";// 애플리케이션 클라이언트 시크릿값";
+		String clientId = Main.searchClientId;// 애플리케이션 클라이언트 아이디값";
+		String clientSecret = Main.searchClientSecret;// 애플리케이션 클라이언트 시크릿값";
 
 		Map<Double, String> rankingmap = new HashMap<Double, String>(); // 순위 매기기 위해 사용한 해시맵
 		try {
@@ -58,13 +58,14 @@ public class Compare_Trends {
 
 			jsonObject.put("keywordGroups", keywordGroups);
 
-			jsonObject.put("device", "pc");
 
 			ArrayList<String> age = new ArrayList<String>();
-			age.add("1");
 			age.add("2");
+			age.add("3");
+			age.add("4");
+			age.add("5");
+			age.add("6");
 			jsonObject.put("ages", age);
-			jsonObject.put("gender", "");
 
 			// 요청
 			String body = jsonObject.toString();

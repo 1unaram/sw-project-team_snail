@@ -8,10 +8,6 @@ public class Marker {
     String posX;
     String posY;
 
-    // Marker(String size, String posX, Stri1ng posY, int label) {
-    // this(size, posX, posY, "d", label);
-    // }
-
     Marker(String size, String posX, String posY, String type, int label) {
         this.size = size;
         this.posX = posX;

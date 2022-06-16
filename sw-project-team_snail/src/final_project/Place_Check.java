@@ -136,17 +136,17 @@ public class Place_Check extends JPanel implements ActionListener {
         p2_rast.setBackground(color);
         p2_rast.setLayout(new BorderLayout());
         p2_rast.setBorder(new LineBorder(Color.white, 2));
-        p2_rast.setBounds(0, 50, 1000, 750);
+        p2_rast.setBounds(0, 50, 1000, 710);
 
         p2_cafe.setBackground(color);
         p2_cafe.setLayout(new BorderLayout());
         p2_cafe.setBorder(new LineBorder(Color.white, 2));
-        p2_cafe.setBounds(0, 50, 1000, 750);
+        p2_cafe.setBounds(0, 50, 1000, 710);
 
         p2_play.setBackground(color);
         p2_play.setLayout(new BorderLayout());
         p2_play.setBorder(new LineBorder(Color.white, 2));
-        p2_play.setBounds(0, 50, 1000, 750);
+        p2_play.setBounds(0, 50, 1000, 710);
 
         // p3
         p3_rest = new CategoryPanel("rest");
@@ -269,12 +269,12 @@ public class Place_Check extends JPanel implements ActionListener {
             cafeIndex++;
         }
 
-        NaverMap map2 = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 900, 600, markers_cafe);
+        NaverMap map2 = new NaverMap(Main.clientId, Main.clientSecret, 900, 600, markers_cafe);
         JLabel mapLabel2 = new JLabel(new ImageIcon(map2.mapImg));
         p2_cafe.add(mapLabel2, BorderLayout.CENTER);
 
         for (int i = 0; i < 5; i++) {
-            map_cafe[i] = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 500, 500,
+            map_cafe[i] = new NaverMap(Main.clientId, Main.clientSecret, 500, 500,
                     markers_cafe[i]);
             mapimage[i] = new JLabel(new ImageIcon(map_cafe[i].mapImg));
         }
@@ -354,17 +354,17 @@ public class Place_Check extends JPanel implements ActionListener {
         Marker[] markers_play = new Marker[5];
 
         int playIndex = 0;
-        for (StoreInfo s : restList) {
+        for (StoreInfo s : cultureList) {
             markers_play[playIndex] = new Marker("mid", s.mapx, s.mapy, "n", playIndex + 1);
             playIndex++;
         }
 
-        NaverMap map3 = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 900, 600, markers_play);
+        NaverMap map3 = new NaverMap(Main.clientId, Main.clientSecret, 900, 600, markers_play);
         JLabel mapLabel3 = new JLabel(new ImageIcon(map3.mapImg));
         p2_play.add(mapLabel3, BorderLayout.CENTER);
 
         for (int i = 0; i < 5; i++) {
-            map_play[i] = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 500, 500,
+            map_play[i] = new NaverMap(Main.clientId, Main.clientSecret, 500, 500,
                     markers_play[i]);
             mapimage[i] = new JLabel(new ImageIcon(map_play[i].mapImg));
         }
@@ -455,7 +455,7 @@ public class Place_Check extends JPanel implements ActionListener {
                 final_markers[1] = final_2;
                 final_markers[2] = final_3;
 
-                NaverMap final_map = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 300, 300,
+                NaverMap final_map = new NaverMap(Main.clientId, Main.clientSecret, 300, 300,
                         final_markers);
                 JLabel final_mapLabel = new JLabel(new ImageIcon(final_map.mapImg));
                 ListDialog listdialog = new ListDialog(f, final_mapLabel, fin_1, fin_2, fin_3);
@@ -574,7 +574,7 @@ public class Place_Check extends JPanel implements ActionListener {
             this.category = category;
             this.setLayout(new BorderLayout());
             this.setBorder(new LineBorder(Color.white, 2));
-            this.setBounds(1000, 50, 440, 750);
+            this.setBounds(1000, 50, 420, 710);
 
             putPanel();
 
