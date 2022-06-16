@@ -15,7 +15,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-import javax.xml.transform.Templates;
 
 class Keywordp extends JPanel { // 키워드 검색시 순위 출력->여기서 검색 버튼 누르면 해당 키워드 관련 음식점, 카페등의 리스트 출력해줌
 

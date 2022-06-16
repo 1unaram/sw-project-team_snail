@@ -181,12 +181,12 @@ public class Place_Check extends JPanel implements ActionListener {
             restIndex++;
         }
 
-        NaverMap map1 = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 900, 600, markers_rest);
+        NaverMap map1 = new NaverMap(Main.clientId, Main.clientSecret, 900, 600, markers_rest);
         JLabel mapLabel1 = new JLabel(new ImageIcon(map1.mapImg));
         p2_rast.add(mapLabel1, BorderLayout.CENTER);
 
         for (int i = 0; i < 5; i++) {
-            map_rast[i] = new NaverMap("vhj6gj3o1t", "obFecuAlLF4uD1wByfjI8ymkm8j0lGfQLMI0WKB4", 500, 500,
+            map_rast[i] = new NaverMap(Main.clientId, Main.clientSecret, 500, 500,
                     markers_rest[i]);
             mapimage[i] = new JLabel(new ImageIcon(map_rast[i].mapImg));
         }

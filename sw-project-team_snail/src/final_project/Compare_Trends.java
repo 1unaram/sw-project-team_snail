@@ -22,8 +22,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class Compare_Trends {
-	Compare_Trends(ArrayList<String> strList, RankTextField[] textFieldArr, int cnt,
-			ArrayList<String> rankingList) {
+
+	/* 상속자 */
+	Compare_Trends(ArrayList<String> strList, RankTextField[] textFieldArr, int cnt, ArrayList<String> rankingList) {
 		String clientId = Main.searchClientId;// 애플리케이션 클라이언트 아이디값";
 		String clientSecret = Main.searchClientSecret;// 애플리케이션 클라이언트 시크릿값";
 
@@ -57,7 +58,6 @@ public class Compare_Trends {
 			}
 
 			jsonObject.put("keywordGroups", keywordGroups);
-
 
 			ArrayList<String> age = new ArrayList<String>();
 			age.add("2");
